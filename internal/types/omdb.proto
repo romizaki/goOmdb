@@ -3,7 +3,7 @@ package omdb;
 option go_package = "internal/types";
 service OMDBService {
   rpc GetMovieByID(GetMovieByIDRequest) returns (GetMovieByIDResponse) {}
- rpc SearchMovies(SearchMoviesRequest) returns (SearchMoviesResponse) {}
+  rpc SearchMovies(SearchMoviesRequest) returns (SearchMoviesResponse) {}
 }
 message GetMovieByIDRequest {
   string id = 1;

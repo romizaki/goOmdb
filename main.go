@@ -6,8 +6,9 @@ import (
 	"log"
 	"net"
 
-	omdb_service "omdb/internal/omdb.service"
 	pb "omdb/internal/types"
+
+	omdb_service "omdb/internal/omdb.service"
 
 	"google.golang.org/grpc"
 )
@@ -20,8 +21,7 @@ func main() {
 
 	grpcServer := grpc.NewServer()
 
-	omdbServer := &omdb_service.OMDBServer{}
-	pb.RegisterOMDBServiceServer(grpcServer, omdbServer)
+	pb.RegisterOMDBServiceServer(grpcServer, &omdb_service.OMDBServer{})
 
 	log.Println("Starting gRPC server on port 50051...")
 	if err := grpcServer.Serve(lis); err != nil {

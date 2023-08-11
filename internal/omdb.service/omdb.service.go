@@ -5,10 +5,13 @@ package omdb_service
 import (
 	"context"
 	"omdb/internal/types"
+	pb "omdb/internal/types"
 	omdb_api "omdb/omdb.api"
 )
 
-type OMDBServer struct{}
+type OMDBServer struct {
+	pb.UnimplementedOMDBServiceServer
+}
 
 func (s *OMDBServer) GetMovieByID(ctx context.Context, req *types.GetMovieByIDRequest) (*types.GetMovieByIDResponse, error) {
 	// Assuming GetMovieByID function returns a *types.GetMovieByIDResponse and an error
